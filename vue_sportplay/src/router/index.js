@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "/",
+    // redirect 指向新路径
     redirect: "/login"
   },{
     path: "/login",

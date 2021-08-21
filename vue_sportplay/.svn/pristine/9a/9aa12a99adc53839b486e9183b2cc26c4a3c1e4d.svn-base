@@ -1,0 +1,71 @@
+{
+  "_from": "@types/http-proxy@^1.17.5",
+  "_id": "@types/http-proxy@1.17.6",
+  "_inBundle": false,
+  "_integrity": "sha1-Ytw/reIn1qwoYsjxnuDanan9hhY=",
+  "_location": "/@types/http-proxy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/http-proxy@^1.17.5",
+    "name": "@types/http-proxy",
+    "escapedName": "@types%2fhttp-proxy",
+    "scope": "@types",
+    "rawSpec": "^1.17.5",
+    "saveSpec": null,
+    "fetchSpec": "^1.17.5"
+  },
+  "_requiredBy": [
+    "/http-proxy-middleware"
+  ],
+  "_resolved": "https://registry.nlark.com/@types/http-proxy/download/@types/http-proxy-1.17.6.tgz",
+  "_shasum": "62dc3fade227d6ac2862c8f19ee0da9da9fd8616",
+  "_spec": "@types/http-proxy@^1.17.5",
+  "_where": "D:\\A_IT_DAIMA\\sys_jiankangguanli\\vue_sportplay\\node_modules\\http-proxy-middleware",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Maxime LUCE",
+      "url": "https://github.com/SomaticIT"
+    },
+    {
+      "name": "Florian Oellerich",
+      "url": "https://github.com/Raigen"
+    },
+    {
+      "name": "Daniel Schmidt",
+      "url": "https://github.com/DanielMSchmidt"
+    },
+    {
+      "name": "Jordan Abreu",
+      "url": "https://github.com/jabreu610"
+    },
+    {
+      "name": "Samuel Bodin",
+      "url": "https://github.com/bodinsamuel"
+    }
+  ],
+  "dependencies": {
+    "@types/node": "*"
+  },
+  "deprecated": false,
+  "description": "TypeScript definitions for node-http-proxy",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/http-proxy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/http-proxy"
+  },
+  "scripts": {},
+  "typeScriptVersion": "3.5",
+  "types": "index.d.ts",
+  "typesPublisherContentHash": "72f2f54abebf2429e43f9c47a929d81020d85c413aacb2ed0e997c0129320f88",
+  "version": "1.17.6"
+}

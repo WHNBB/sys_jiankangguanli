@@ -7,13 +7,15 @@ import './plugins/element.js'
 import './assets/css/global.css'
 // 引入iconfont图标
 import './assets/font/iconfont.css'
-// 引入axios
+// 引入 axios
 import axios from 'axios'
 import VueRouter from 'vue-router'
-// 挂载axios到vue
-Vue.prototype.$http = axios
+
 // 设置访问根路径
 axios.defaults.baseURL = "http://localhost:9000"
+
+// 将axios挂载到Vue原型，通过this.$http使用axios，'$'符号后边的名字可以任意起，不用与挂载的包名相同
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 

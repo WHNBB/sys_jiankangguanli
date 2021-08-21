@@ -8,7 +8,7 @@ spring:
     password: root
 
 mybatis:
-  # src/resources/mapper文件夹里边放数据库配置文件
+  # src/resources/mapper 文件夹里边放数据库配置文件
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.demo.model
 
