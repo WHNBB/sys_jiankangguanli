@@ -25,6 +25,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     data(){
@@ -49,7 +50,7 @@ export default {
             },
         }
     },
-    methods: {
+    methods:{
         // 重置表单内容
         resetLoginForm(){
             // console.log("重置信息");
@@ -61,15 +62,27 @@ export default {
             this.$refs.loginFormRef.validate(async valid =>{
                 // console.log(valid);
                 if( !valid ) return;
-                //向后端请求数据
-                const {data:res} = await this.$http.post("login", this.loginForm);
-                // console.log(res);
-                if( res=='ok' ){
-                    this.$message.success("登录成功！！");
-                    this.$router.push({path:"/home"});
-                }else{
-                    this.$message.error("操作失败！！");
-                }
+
+                this.$http.post(
+                                "login", 
+                                this.loginForm
+                )
+                .then(res=>{ // 返回的res是个复杂的对象，data存着后端返回的值
+                    let receive = res.data;
+                    console.log(receive);
+                    if( receive.flag=='ok' ){
+                        this.$message.success("登录成功！！");
+                        // 将返回的用户保存到session中
+                        window.sessionStorage.setItem("user",receive.user);
+                        console.log(receive.user);
+                        this.$router.push({path:"/home"});
+                    }else{
+                        this.$message.error("操作失败！！");
+                    }
+                })
+                .catch(error=>{
+                    console.log(error);
+                });
             });
         }
     },

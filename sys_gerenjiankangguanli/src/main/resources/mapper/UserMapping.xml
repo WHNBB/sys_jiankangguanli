@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace写对应dao层的文件的包名加类名-->
+<mapper namespace="com.yingejiang.sportplay.dao.UserDao">
+    <!-- id对应要实现的dao层的方法名 -->
+    <!--resultType指返回值类型，写完整的包名加类名-->
+    <select id="getUserByMessage" resultType="com.yingejiang.sportplay.bean.User">
+        select * from easyuser where
+                                     username = #{username} and
+                                     password = #{password} and
+                                     state = 1;
+    </select>
+</mapper>
