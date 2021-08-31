@@ -4,13 +4,15 @@ import VueRouter from 'vue-router'
 // 引入Login组件
 import Login from '../components/Login.vue' 
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import UserList from '../components/admin/UserList.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/",
-    // redirect 指向新路径
+    // redirect 用另一个路径覆盖原来路径
     redirect: "/login"
   },{
     path: "/login",
@@ -22,7 +24,12 @@ const routes = [
   },
   {
     path: "/home",
-    component: Home
+    component: Home,
+    redirect: '/welcome',
+    children:[
+      {path: "/welcome",component: Welcome},
+      {path: "/user",component: UserList},
+    ]
   },
 ]
 

@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "436018",
+      "name": "运动",
+      "font_class": "yundong1",
+      "unicode": "e807",
+      "unicode_decimal": 59399
+    },
+    {
+      "icon_id": "569038",
+      "name": "管理员",
+      "font_class": "guanliyuan1",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "2087570",
+      "name": "运动",
+      "font_class": "yundong2",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "6742925",
+      "name": "医学科普",
+      "font_class": "yixuekepu",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "15023365",
+      "name": "商品",
+      "font_class": "shangpin1",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "17605540",
+      "name": "营养科",
+      "font_class": "yingyangke",
+      "unicode": "e81d",
+      "unicode_decimal": 59421
+    },
+    {
+      "icon_id": "18494112",
+      "name": "用户列表",
+      "font_class": "yonghuliebiao",
+      "unicode": "e7f1",
+      "unicode_decimal": 59377
+    },
+    {
+      "icon_id": "18729625",
+      "name": "权限",
+      "font_class": "quanxian",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
       "icon_id": "1165",
       "name": "管理员",
       "font_class": "guanliyuan",

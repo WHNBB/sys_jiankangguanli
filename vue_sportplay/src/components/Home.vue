@@ -11,20 +11,22 @@
     <!-- 中间区域 -->
     <el-container>
       <!-- 侧边 -->
-      <el-aside width="200px">
+      <el-aside :width="isCollapse?'64px':'200px'">
+          <div class="toggle-button" @click="toggleCollapase">|||</div>
           <!-- el-menu 中加上 unique-opened 可以保持只有一个菜单栏开启，另一个自动关闭 -->
-          <el-menu @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff"
-            active-text-color="#409eff" >
+          <el-menu background-color="#545c64" text-color="#fff" active-text-color="#409eff" 
+          :collapse="isCollapse" :collapse-transition="false" :router="true" :default-active="activePath">
+            <!-- collapse-transition 伸缩的方向 -->
             <!-- 一级菜单 -->
             <el-submenu :index="item.id+''" v-for="item in menuList" :key="item.id">
               <template slot="title">
-                <i class="el-icon-location"></i>
+                <i :class="iconsObject[item.id]"></i>
                 <span>{{item.title}}</span>
               </template>
               <!-- 二级菜单 -->
-              <el-menu-item :index="it.id+''" v-for="it in item.sList" :key="it.id">
+              <el-menu-item :index="it.path" v-for="it in item.sList" :key="it.id" @click="savePath(it.path)">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i :class="iconsObject[it.id]"></i>
                   <span>{{it.title}}</span>
                 </template>
               </el-menu-item>
@@ -33,7 +35,7 @@
       </el-aside>
       <!-- 内容 -->
       <el-main>
-          {{menuList}}
+          <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -44,11 +46,26 @@ export default {
   data(){
       return{
           menuList:[], // 导航栏信息
+          isCollapse: false, // 控制导航栏是否伸缩 true=伸缩，false=不伸
+          iconsObject:{
+             "100":"iconfont icon-guanliyuan1",
+             "101":"iconfont icon-yonghuliebiao",
+             "102":"iconfont icon-quanxian",
+             "103":"iconfont icon-yundong2",
+             "104":"iconfont icon-shangpin1",
+             "200":"iconfont icon-yundong1",
+             "201":"iconfont icon-shu",
+             "202":"iconfont icon-qialuli",
+             "203":"iconfont icon-yingyangke"
+          }, // 左侧导航栏图标
+          activePath:'/welcome',
       }
   },
   created(){
       // 获取导航栏信息
       this.getMenuList();
+      // 获取登录后保存的路径
+      this.activePath = window.sessionStorage.getItem("activePath");
   },
   methods: {
     logout() {
@@ -71,14 +88,22 @@ export default {
             // 想输出json请求得到的数据时，单独输出，不要用 + 号做连接处理，否则会显示 xxx:object
             // 因为有 + 号时，会先用toString()方法将字符串拼接
             let receive = res.data;
+            console.log("home请求导航栏信息成功");
             console.log("receive：");
             console.log(receive.menus);
             this.menuList = receive.menus;
         }).catch(error=>{
-            console.log("Home.vue：" + error);
+            console.log("home请求导航栏信息错误");
         });
         console.log("getMenuList");
     },
+    toggleCollapase(){
+      this.isCollapse = !this.isCollapse;
+    },
+    savePath(path){
+      window.sessionStorage.setItem("activePath",path);
+      this.activePath = path;
+    }
   },
 };
 </script>
@@ -93,6 +118,7 @@ export default {
   color: #fff;
   font-size: 20px;
   text-align: center;
+  align-items: center;
   // 设置左侧外边距
   padding-left: 0%;
   //
@@ -111,6 +137,9 @@ export default {
 .el-aside {
   background-color: #333744;
   color: #333;
+  .el-menu {
+    border-right: none;
+  }
 }
 // 内容
 .el-main {
@@ -121,5 +150,15 @@ export default {
 img {
   width: 55px;
   height: 55px;
+}
+// 按钮
+.toggle-button {
+  background-color: #4A5064;
+  font-size: 10px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }
 </style>

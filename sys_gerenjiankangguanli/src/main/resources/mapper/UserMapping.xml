@@ -13,4 +13,19 @@
                                      password = #{password} and
                                      state = 1;
     </select>
+
+    <select id="getUsers" resultType="com.yingejiang.sportplay.bean.User">
+        select * from easyuser
+        <if test="username != null">
+            where username like #{username}
+        </if>
+        limit #{pageStart},#{pageSize}
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(*) from easyuser
+        <if test="username != null">
+            where username like #{username}
+        </if>
+    </select>
 </mapper>
