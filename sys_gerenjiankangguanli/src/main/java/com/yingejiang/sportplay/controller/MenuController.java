@@ -1,5 +1,6 @@
 package com.yingejiang.sportplay.controller;
 
+import com.yingejiang.sportplay.bean.MainMenu;
 import com.yingejiang.sportplay.dao.MenuDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +24,11 @@ public class MenuController {
     @Autowired
     MenuDao menuDao;
 
-    @RequestMapping("getmenus")
+    @RequestMapping("/getmenus")
     public Map<String, Object> getMenus(){
         System.out.println("开始查找导航栏信息");
         HashMap<String, Object> returndata = new HashMap<>();
-        List<MenuDao> menus = menuDao.getMenus();
+        List<MainMenu> menus = menuDao.getMenus();
         // status 成功标识符 错误==404  成功==200
         System.out.println("menus："+ menus);
         if(menus != null){

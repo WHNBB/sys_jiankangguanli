@@ -1,5 +1,6 @@
 package com.yingejiang.sportplay.dao;
 
+import com.yingejiang.sportplay.bean.MainMenu;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,5 +15,5 @@ import java.util.List;
  */
 @Repository
 public interface MenuDao {
-    public List<MenuDao> getMenus();
+    public List<MainMenu> getMenus();
 }

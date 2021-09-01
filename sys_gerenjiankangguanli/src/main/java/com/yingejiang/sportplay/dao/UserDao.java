@@ -18,13 +18,9 @@ import java.util.List;
 @Repository
 public interface UserDao {
     // 查询用户的方法
-    public User getUserByMessage(@Param("username") String username,
-                                 @Param("password") String password);
+    public User getUserByMessage(@Param("username") String username,@Param("password") String password);
     // 查询所有用户的方法，或模糊查询的方法
-    public List<User> getUsers(@Param("username") String username,
-                               @Param("pageStart") int pageStart,
-                               @Param("pageSize") int pageSize);
-
+    public List<User> getUsers(@Param("username") String username, @Param("pageStart") int pageStart, @Param("pageSize") int pageSize);
     // 查询用户数量的方法
     public int getCount(@Param("username") String username);
 }

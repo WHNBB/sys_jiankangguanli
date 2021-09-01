@@ -13,7 +13,8 @@
                                      password = #{password} and
                                      state = 1;
     </select>
-
+<!--    id的值对应dao层的方法名-->
+<!--    #{参数名} 获取参数的值-->
     <select id="getUsers" resultType="com.yingejiang.sportplay.bean.User">
         select * from easyuser
         <if test="username != null">
