@@ -10,6 +10,7 @@ import './assets/css/global.css'
 // 引入iconfont图标
 import './assets/font/iconfont.css'
 import VueRouter from 'vue-router'
+
 // 引入 axios
 import axios from 'axios'
 // 将axios挂载到Vue原型，通过this.$http使用axios，'$'符号后边的名字可以任意起，不用与挂载的包名相同

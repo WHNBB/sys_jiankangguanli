@@ -29,4 +29,29 @@
             where username like #{username}
         </if>
     </select>
+
+    <update id="updateState">
+        update easyuser set state = #{state} where id = #{id}
+    </update>
+
+    <insert id="addUser">
+        INSERT INTO easyuser (username, password, email, role, state)
+        VALUES (#{username}, #{password}, #{email}, #{role}, #{state});
+    </insert>
+
+    <delete id="deleteUser">
+        DELETE FROM easyuser WHERE ID = #{id}
+    </delete>
+
+<!--    修改用户信息-->
+    <select id="getUser" resultType="com.yingejiang.sportplay.bean.User">
+        SELECT * FROM easyuser WHERE ID = #{id}
+    </select>
+
+    <update id="editUser">
+        UPDATE easyuser SET password = #{password} ,
+                            email = #{email}
+                        WHERE username = #{username}
+    </update>
+<!--    修改用户信息-->
 </mapper>
